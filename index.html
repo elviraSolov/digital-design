@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Входное задяние</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="page theme" data-theme="light">
+    <!-- основная навигация -->
+    <header class="page__header header">
+        <div class="header__wrapper wrapper">
+            <ul class="header__categories categories">
+                <li class="categories__item">
+                    <a href="#female" class="categories__link">
+                        Женщинам
+                    </a>
+                </li>
+                <li class="categories__item">
+                    <a href="#male" class="categories__link">
+                        Мужчинам
+                    </a>
+                </li>
+                <li class="categories__item">
+                    <a href="#children" class="categories__link">
+                        Детям
+                    </a>
+                </li>
+            </ul>
+
+            <!-- кнопка для смены темы сайта -->
+            <label class="header__theme">
+                <input class="theme__input" type="checkbox">
+                <span class="theme__slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <main class="page__main">
+        <!-- карточки товаров по категориям -->
+        <h2><a name="female">Женская одежда</a></h2>
+        <ul class="cards-container cards-container--female"></ul>
+
+        <h2><a name="male">Мужская одежда</a></h2>
+        <ul class="cards-container cards-container--male"></ul>
+
+        <h2><a name="children">Детская одежда</a></h2>
+        <ul class="cards-container cards-container--children"></ul>
+
+        <!-- модальное окно -->
+        <div class="modal modal--close">
+            <div class="modal__wrapper">
+                <img class="modal__photo" width="290px" src="" alt="">
+                <h2 class="modal__product-name"></h2>
+
+                <form class="modal__form form" action="post">
+                    <label class="form__label form__count">
+                        <span class="form__label-text">Количество</span>
+                        <input class="form__input form__input--number" type="number" required> 
+                    </label>
+
+                    <span class="modal__form form__label-text">Размер</span>
+                    <ul class="form__field-group field-group">
+                        <li class="field-group__item">
+                            <label class="field-group__control control">
+                                <input class="control__input" type="radio" name="size" value="s" checked>
+                                <span class="control__toggle"></span>
+                                <span class="control__text">S</span>
+                            </label>
+                        </li>
+                        <li class="field-group__item">
+                            <label class="field-group__control control">
+                                <input class="control__input" type="radio" name="size" value="m">
+                                <span class="control__toggle"></span>
+                                <span class="control__text">M</span>
+                            </label>
+                        </li>
+                        <li class="field-group__item">
+                            <label class="field-group__control control">
+                                <input class="control__input" type="radio" name="size" value="l">
+                                <span class="control__toggle"></span>
+                                <span class="control__text">L</span>
+                            </label>
+                        </li>
+                    </ul>
+
+                    <label class="form__label form__comment">
+                        <span class="form__label-text">Комментарий</span>
+                        <textarea class="form__input form__input--comment" maxlength="2000" name="comment" cols="30" rows="5"></textarea>
+                    </label>
+                </form>
+
+                <p class="modal__error form__error form__error--close">
+                    Заполните все обязательные поля
+                </p>
+
+                <div class="modal__btn-wrapper btn-wrapper">
+                    <button class="btn btn--secondary btn--close" type="button">Закрыть</button>
+                    <button class="btn btn--primary btn--buy" type="button">Купить</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- alert, появляется на 3 секунды при покупке товара -->
+        <div class="alert alert--close">
+            <p>Покупка прошла успешно!</p>
+        </div>
+
+        <div class="wrapper">
+            <button class="scroll-btn scroll-btn--hide">
+                <span class="scroll-btn__arrow"></span>
+            </button>
+        </div>
+       
+    </main>
+
+    <!-- дополнительная навигация в подвале сайта -->
+    <footer class="page__footer footer">
+        <div class="wrapper">
+            <ul class="footer__nav footer-nav">
+                <li class="footer-nav__item">
+                    <a href="#female" class="footer-nav__link">
+                        Женщинам
+                    </a>
+                </li>
+                <li class="footer-nav__item">
+                    <a href="#male" class="footer-nav__link">
+                        Мужчинам
+                    </a>
+                </li>
+                <li class="footer-nav__item">
+                    <a href="#children" class="footer-nav__link">
+                        Детям
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- шаблон для карточек товров -->
+    <template id="card">
+        <li class="cards-container__card card">
+            <img class="card__photo" width="220px" src="" alt="">
+            <div class="card__about">
+                <h3 class="card__title"></h3>
+                <p class="card__date">Дата</p>
+                <button class="card__btn btn btn--primary" type="button">Купить</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="js/scroll-up.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
