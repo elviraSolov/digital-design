@@ -1,12 +1,16 @@
 // функции для работы с модальным окном
+const body = document.querySelector('body')
 const modal = document.querySelector('.modal')
 const modalWindow = document.querySelector('.modal__wrapper')
 const alert = document.querySelector('.alert')
+
 const btnClose = modal.querySelector('.btn--close')
 const btnOpen = modal.querySelector('.btn--buy')
+
 const errorText = modal.querySelector('.form__error')
 const countField = modal.querySelector('.form__input--number')
 const commentField = modal.querySelector('.form__input--comment')
+
 const modalPhoto = modal.querySelector('.modal__photo')
 const modalTitle = modal.querySelector('.modal__product-name')
 
