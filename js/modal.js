@@ -1,8 +1,9 @@
 // функции для работы с модальным окном
 const modal = document.querySelector('.modal')
+const modalWindow = document.querySelector('.modal__wrapper')
 const alert = document.querySelector('.alert')
 const btnClose = modal.querySelector('.btn--close')
-const btnBuy = modal.querySelector('.btn--buy')
+const btnOpen = modal.querySelector('.btn--buy')
 const errorText = modal.querySelector('.form__error')
 const countField = modal.querySelector('.form__input--number')
 const commentField = modal.querySelector('.form__input--comment')
@@ -20,15 +21,29 @@ const formValidation = () => {
     }
 }
 
+const animateIn = () => {
+    modalWindow.classList.remove('modal--in')
+    modalWindow.removeEventListener('animetionend', animateIn)
+}
+
+const animateOut = () => {
+    modalWindow.classList.remove('modal--out')
+    modal.classList.remove('modal--open')
+    modalWindow.removeEventListener('animationend', animateOut)
+}
+
 const showModal = (photo, name) => {
     modalTitle.textContent = name
     modalPhoto.src = photo
     modalPhoto.alt = name
-    modal.classList.remove('modal--close')
+    modalWindow.addEventListener('animationend', animateIn)
+    modal.classList.add('modal--open')
+    modalWindow.classList.add('modal--in')
 }
 
 const hideModal = () => {
-    modal.classList.add('modal--close')
+    modalWindow.addEventListener('animationend', animateOut)
+    modalWindow.classList.add('modal--out')
 }
 
 const showAlert = () => {
@@ -40,7 +55,7 @@ const hideAlert = () => {
     alert.classList.add('alert--close')
 }
 
-const clickBtnBuy = (event) => {
+const clickbtnOpen = (event) => {
     event.preventDefault()
     const isValid = formValidation()
     if(isValid) {
@@ -52,4 +67,4 @@ const clickBtnBuy = (event) => {
 }
 
 btnClose.addEventListener('click', hideModal)
-btnBuy.addEventListener('click', clickBtnBuy)
+btnOpen.addEventListener('click', clickbtnOpen)
