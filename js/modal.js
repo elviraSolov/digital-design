@@ -42,12 +42,14 @@ const showModal = (photo, name) => {
     modalPhoto.alt = name
     modalWindow.addEventListener('animationend', animateIn)
     modal.classList.add('modal--open')
+    body.style.overflow = 'hidden'
     modalWindow.classList.add('modal--in')
 }
 
 const hideModal = () => {
     modalWindow.addEventListener('animationend', animateOut)
     modalWindow.classList.add('modal--out')
+    body.style.overflow = 'auto'
 }
 
 const showAlert = () => {
